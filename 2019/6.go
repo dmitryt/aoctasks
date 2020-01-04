@@ -11,7 +11,7 @@ type Vertex struct {
 	children []*Vertex;
 }
 
-func part1(orbits []string) {
+func part6_1(orbits []string) {
 	storage := make(map[string]string)
 	for _, orbit := range orbits {
 		parsed := strings.Split(string(orbit), ")")
@@ -35,7 +35,7 @@ func part1(orbits []string) {
 	fmt.Println(result)
 }
 
-func part2(orbits []string) {
+func part6_2(orbits []string) {
 	storage := make(map[string]string)
 	for _, orbit := range orbits {
 		parsed := strings.Split(string(orbit), ")")
@@ -77,7 +77,7 @@ func part2(orbits []string) {
 	fmt.Println(len(result) - 1)
 }
 
-func main() {
+func run6() {
 	content, _ := ioutil.ReadFile("6.txt")
-	part2(strings.Split(string(content), "\n"))
+	part6_2(strings.Split(string(content), "\n"))
 }

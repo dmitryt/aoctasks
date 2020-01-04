@@ -39,7 +39,7 @@ func split(numbers *[]string, width int, height int) []Layer {
 	return result
 }
 
-func part1(numbers *[]string, width int, height int) {
+func part8_1(numbers *[]string, width int, height int) {
 	layers := split(numbers, width, height)
 	sort.Slice(layers, func(i, j int) bool {
 		return layers[i].stats["0"] < layers[j].stats["0"]
@@ -48,7 +48,7 @@ func part1(numbers *[]string, width int, height int) {
 	fmt.Println(layers[0].stats["1"] * layers[0].stats["2"])
 }
 
-func part2(numbers *[]string, width int, height int) {
+func part8_2(numbers *[]string, width int, height int) {
 	layers := split(numbers, width, height)
 	result := [][]string{}
 	for j := 0; j < height; j = j + 1 {
@@ -77,8 +77,8 @@ func part2(numbers *[]string, width int, height int) {
 	}
 }
 
-func main() {
+func run8() {
 	content, _ := ioutil.ReadFile("8.txt")
 	numbers := strings.Split(string(content), "")
-	part2(&numbers, 25, 6)
+	part8_2(&numbers, 25, 6)
 }

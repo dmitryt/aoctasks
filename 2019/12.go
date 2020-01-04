@@ -6,7 +6,7 @@ import (
 	"strings"
 	"regexp"
 	"math"
-	"time"
+	// "time"
 	"fmt"
 )
 
@@ -77,7 +77,7 @@ func iterate(moons []Moon) ([]Moon, int) {
 	return result, energy
 }
 
-func part1(moons *[]Moon) {
+func part12_1(moons *[]Moon) {
 	tmp := *moons
 	for i := 0; i < 1000; i = i + 1 {
 		tmp, _ = iterate(tmp)
@@ -89,23 +89,23 @@ func part1(moons *[]Moon) {
 	fmt.Println(result)
 }
 
-func part2(moons *[]Moon) {
+func part12_2(moons *[]Moon) {
 	tmp := *moons
-	_, firstEnergy := iterate(*moons)
+	// _, _ := iterate(*moons)
 	result := -1
-	start := time.Now()
+	// start := time.Now()
 	for i := 0;; i = i + 1 {
-		tmpEnergy := 0
-		tmp, tmpEnergy = iterate(tmp)
+		// tmpEnergy := 0
+		tmp, _ = iterate(tmp)
 		if i % 10000000 == 0 {
 			fmt.Println(i)
-			fmt.Println("Took %s", time.Since(start))
-			start = time.Now()
+			// fmt.Println("Took %s", time.Since(start))
+			// start = time.Now()
 		}
-		if i > 0 && firstEnergy == tmpEnergy {
-			result = i
-			break
-		}
+		// if i > 0 && firstEnergy == tmpEnergy {
+		// 	result = i
+		// 	break
+		// }
 	}
 	fmt.Println(result)
 }
@@ -124,7 +124,7 @@ func preparePos(arr []string) [3]int {
 	return pos
 }
 
-func main() {
+func run12() {
 	content, _ := ioutil.ReadFile("12.txt")
 	moonsData := strings.Split(string(content), "\n")
 	moons := []Moon{}
@@ -132,5 +132,5 @@ func main() {
 	for _, data := range moonsData {
 		moons = append(moons, Moon{pos: preparePos(pattern.FindAllStringSubmatch(data, -1)[0][1:])})
 	}
-	part2(&moons)
+	part12_2(&moons)
 }

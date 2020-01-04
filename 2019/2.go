@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func part1(codes []string) []string {
+func part2_1(codes []string) []string {
 	index := 0
 	buffer := []int{}
 	toInt := func(str string) int {
@@ -37,7 +37,7 @@ func part1(codes []string) []string {
 	return codes
 }
 
-func part2(pCodes *[]string) {
+func part2_2(pCodes *[]string) {
 	codes := *pCodes
 	const min = 0
 	const max = 100
@@ -47,15 +47,16 @@ func part2(pCodes *[]string) {
 	for i := min; i < max; i = i + 1 {
 		for j := min; j < max; j = j + 1 {
 			normalzedCodes := append([]string{codes[0], strconv.Itoa(i), strconv.Itoa(j)}, codes[3:]...)
-			if part1(normalzedCodes)[0] == expected {
+			if part2_1(normalzedCodes)[0] == expected {
 				fmt.Println(100 * i + j)
 			}
 		}
 	}
 }
 
-func main() {
-	content, _ := ioutil.ReadFile("4.txt")
+func run2() {
+	content, _ := ioutil.ReadFile("2.txt")
 	codes := strings.Split(string(content), ",")
-	part2(&codes)
+	part2_2(&codes)
 }
+

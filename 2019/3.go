@@ -102,7 +102,7 @@ func findMinSteps(seq1 []string, seq2 []string) float64 {
 	return minStep
 }
 
-func main() {
+func run3() {
 	str1 := "R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51";
 	str2 := "U98,R91,D20,R16,D67,R40,U7,R15,U6,R7";
 	seq1 := strings.Split(str1, ",");
